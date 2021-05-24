@@ -1,0 +1,131 @@
+.header
+
+    &__bar1
+        display: flex
+        justify-content: center
+        align-items: center
+        background: var(--topNavBgClr)
+        padding: 2px
+        width: 100vw
+        // margin: 0 5px
+        padding: 0 20px
+
+        .logoContainer
+            margin-top: 2px
+            display: grid
+            place-items: center center
+            flex-grow: 0
+            @media screen and ( max-width: 600px )
+                flex-grow: 1
+
+            .logo
+                cursor: pointer
+
+        .search
+            height: 35px
+            display: flex
+            align-items: center
+            justify-content: center
+            flex-grow: 1
+            border-radius: 5px
+            
+
+            @media screen and ( max-width: 600px )
+                display: none
+
+            .search__content
+                display: flex
+                align-items: center
+                flex-grow: 1
+                max-width: 50vw
+
+                .search__input
+                    height: 40px
+                    border: none
+                    background: #eee
+                    border-radius: 5px 0 0 5px
+                    flex-grow: 1
+                    font-size: 1.2em
+                    padding: 0.1em 1em
+
+                    &:focus
+                        outline: none
+
+            &__icon
+                background: var(--primaryClr)
+                height: 40px
+                padding: 4px
+                border-radius: 0 5px 5px 0
+                cursor: pointer
+        
+        .header__nav
+            display: flex
+            justify-content: space-evenly
+            font-size: 15em
+
+            .header__option
+                cursor: pointer
+                display: flex
+                color: white
+                flex-direction: column
+                margin: 0 10px
+                // height: 20px
+
+                &:hover .header__optionLine2
+                    color: var(--primaryColor)
+
+
+                &Line1
+                    font-size: 10px
+
+                &Line2
+                    font-size: 13px
+                    font-weight: 800
+                    transition: all .3s ease
+
+
+            .header__optionBasket
+                display: flex
+                cursor: pointer
+                align-items: center
+                color: white
+                margin: 0 10px
+
+                .cartIcon
+                    width: 20px
+
+                .header__basketCount
+                    display: block
+                    // padding: 3px
+                    border-radius: 5px
+                    background: var(--primaryClr)
+                    width: 1.2rem
+                    height: 1.2rem
+                    border-radius: 0.6rem
+                    text-align: center
+                    margin: 0 10px
+                    font-size: 1rem
+                    // color: green
+
+    &__bar2
+        width: 100vw
+        background: var(--primaryClr)
+        display: flex
+        padding: 5px 20px
+
+        a
+            font-size: 0.8em
+            margin: 0 10px
+            display: block
+            cursor: pointer
+
+        .menuIcon
+            width: 1rem
+
+        .hideInSmall
+            @media screen and ( max-width: 600px )
+                display: none
+            
+                
+        
+                    

@@ -30,7 +30,7 @@
             border-radius: 5px
             
 
-            @media screen and ( max-width: 600px )
+            @media screen and ( max-width: var(--md) )
                 display: none
 
             .search__content
@@ -57,6 +57,10 @@
                 padding: 4px
                 border-radius: 0 5px 5px 0
                 cursor: pointer
+                transition: all 0.3s ease
+
+                &:hover
+                    background: var(--darkerPrimaryClr)
         
         .header__nav
             display: flex
@@ -72,7 +76,7 @@
                 // height: 20px
 
                 &:hover .header__optionLine2
-                    color: var(--primaryColor)
+                    color: var(--primaryClr)
 
 
                 &Line1
@@ -109,9 +113,11 @@
 
     &__bar2
         width: 100vw
-        background: var(--primaryClr)
+        background: var(--bottomNavBgClr)
         display: flex
         padding: 5px 20px
+        color: #000
+        font-weight: 600
 
         a
             font-size: 0.8em
@@ -119,11 +125,14 @@
             display: block
             cursor: pointer
 
+            &:hover
+                color: #000000
+
         .menuIcon
             width: 1rem
 
         .hideInSmall
-            @media screen and ( max-width: 600px )
+            @media screen and ( max-width: var(--md) )
                 display: none
             
                 

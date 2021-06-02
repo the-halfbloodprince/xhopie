@@ -1,0 +1,27 @@
+.banner
+    position: relative
+    max-width: 1400px
+    margin: 0 auto
+    background: white
+
+    .carousel
+        object-fit: cover
+        overflow: hidden
+
+        @media screen and ( min-width: var(--md) )
+            height: 70vh
+            
+
+        .carouselImages
+            object-position: 0 -35vh
+
+    .overlay
+        position: absolute
+        bottom: 0
+        width: 100%
+        height: 20%
+        z-index: 2
+        background: linear-gradient(to top, var(--bgClr), transparent)
+
+        @media screen and ( max-width: var(--md) )
+            display: none

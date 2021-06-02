@@ -1,0 +1,94 @@
+.product
+    position: relative
+    display: flex    
+    flex-direction: column
+    margin: 10px
+    background: var(--productCardClr)
+    z-index: 2
+    border-radius: 5px
+    padding: 10px 10px 20px 10px
+    color: var(--productFontColor)
+    transition: all .2s ease
+    min-width: 300px
+    width: 100%
+    box-shadow: 5px 5px 10px #22222255
+
+    &:hover
+        // transform: scale(.99)
+        // box-shadow: 10px 10px var(--bottomNavBgClr)
+        
+
+    // .image
+    //     margin: 10px 0
+
+    .title
+        margin: 20px 0
+
+    .category
+        position: absolute
+        top: 2px
+        right: 2px
+        margin: 5px 0
+        font-size: 0.7em
+        font-style: italic
+        color: var(--subGrey)
+        z-index: 2
+
+    .rating
+        display: flex
+        margin: 5px 0
+
+        &Star
+            width: 1rem
+            color: var(--starColor)
+            margin: 0 2px
+
+    .description
+        font-size: 0.7em
+        margin: 5px 0
+
+    .price
+        margin: 5px 0
+
+    .prime
+        display: flex
+        align-items: center
+        font-size: 0.7em
+
+        img
+            height: 3em
+            margin: 0 5px
+
+        p
+            color: var(--subGrey)
+
+    // .buttons
+    //     display: flex
+    //     width: 100%
+    //     justify-content: space-between
+
+    .btn
+        // width: 50%
+        // height: 1.2rem
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-top: auto
+        padding: 10px 40px
+        font-size: 1.1rem
+        background: var(--btnBg)
+        cursor: pointer
+        border: red 2px
+        border-radius: 5px
+        transition: all .2s ease
+        color: white
+        width: 100%
+        margin: auto auto 0
+
+        &:hover
+            background: var(--btnHoverBg)
+
+        .icons
+            width: 1.1rem
+            height: 1.1rem
+            margin-right: 10px 

@@ -1,16 +1,21 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from '@heroicons/react/solid'
+import { signIn, signOut, useSession } from 'next-auth/client'
 import styles from '../styles/Header.module.sass'
 
-const tags = [<MenuIcon className={styles.menuIcon} /> ,'All', 'Electronics', 'Mobiles', 'Home & Grocery', 'Buy Again', 'Health and Personal Care', 'Eatables']
+
+const tags = [<MenuIcon className={styles.menuIcon} />, 'All', 'Electronics', 'Mobiles', 'Home & Grocery', 'Buy Again', 'Health and Personal Care', 'Eatables']
 function Header() {
+    const [session] = useSession()
+    const router = useRouter()
     return (
         <header className={styles.header} >
 
             {/* Top Nav */}
             <div className={styles.header__bar1} >
                 {/* Logo */}
-                <div className={styles.logoContainer} >
+                <div className={styles.logoContainer} onClick={() => router.push('/') } >
                     <Image src="/logo.png" width={150} height={60} objectFit="contain" className={styles.logo} />
                 </div>
                 {/* Search */}
@@ -23,9 +28,9 @@ function Header() {
                 {/* Nav */}
                 <div className={styles.header__nav} >
 
-                    <div className={styles.header__option} >
-                        <div className={styles.header__optionLine1} >Hello</div>
-                        <div className={styles.header__optionLine2} >Sign In</div>
+                    <div onClick={session ? signOut : signIn} className={styles.header__option} >
+                        <div className={styles.header__optionLine1} >{session ? `Hello ${session.user.name.split(' ')[0]}` : `Sign In`}</div>
+                        <div className={styles.header__optionLine2} >Account & Lists</div>
                     </div>
                     <div className={styles.header__option} >
                         <div className={styles.header__optionLine1} >Returns</div>
@@ -35,7 +40,7 @@ function Header() {
                         <div className={styles.header__optionLine1} >Your</div>
                         <div className={styles.header__optionLine2} >Prime</div>
                     </div>
-                    <div className={styles.header__optionBasket} >
+                    <div className={styles.header__optionBasket} onClick={() => router.push('/checkout')} >
                         <ShoppingCartIcon className={styles.cartIcon} />
                         <span className={styles.header__optionLine2, styles.header__basketCount}>0</span>
                     </div>
@@ -45,11 +50,11 @@ function Header() {
 
             {/* Tags */}
             <div className={styles.header__bar2}>
-            {
-                tags.map((tag, key) => (
-                    <a class={styles.tag, key>4 && styles.hideInSmall} key={key}>{tag}</a>
-                ))
-            }
+                {
+                    tags.map((tag, key) => (
+                        <a className={styles.tag, (key > 4 ? styles.hideInSmall : undefined)} key={key}>{tag}</a>
+                    ))
+                }
             </div>
 
 

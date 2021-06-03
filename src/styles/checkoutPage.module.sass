@@ -1,9 +1,10 @@
 .mainContainer
     max-width: 1400px
     margin: 0 auto
+    display: flex
 
-    @media screen and ( min-width: var(--lg) )
-        display: flex
+    // @media screen and ( min-width: var(--md) )
+    //     display: flex
 
     .left
         flex-grow: 1
@@ -24,5 +25,38 @@
             padding: 10px
             border-bottom: 2px #55555544 solid
         
+    .itemsList
+        width: 95%
+        margin: 0 auto
+        // height: 100%
+        // background: yellow
+
+    .right
+        margin: 15px
+        box-shadow: 5px 5px 50px  #00000077
+        background: white
+        padding: 30px
+        font-size: .9rem
+        font-weight: 500
+        min-width: 300px
+        max-height: 30vh
+
+        .button
+            margin: 20px 0
+            background: var(--primaryClr)
+            padding: 10px 15px
+            border-radius: 5px
+            border: none
+            outline: none
+            font-weight: 500
+            width: 100%
+            box-shadow: 5px 5px 20px  #00000077
+
+
+        .disabledButton
+            @extend .button
+            background: #aaa
+            cursor: not-allowed
+            pointer-events: none
 
         

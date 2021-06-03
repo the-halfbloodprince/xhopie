@@ -2,6 +2,7 @@
     position: relative
     background: white
     display: grid
+    width: 100%
     grid-template-columns: repeat( 5 , 1fr )
     margin: 40px 0
     // border-bottom: 1px solid #aaaaaaaa
@@ -19,8 +20,10 @@
 
 
     .midSec
-        grid-column: span 2
+        grid-column: span 3
         margin: auto 10px
+        padding: 20px
+        // background: blue
 
         .description
             font-size: 0.7rem
@@ -51,7 +54,7 @@
         flex-direction: column
         justify-content: center
         align-items: center
-        // background: yellow
+        // background: green
         height: 300px
 
         .btn
@@ -62,7 +65,8 @@
             align-items: center
             // margin-top: auto
             padding: 10px 40px
-            font-size: 1.1rem
+            font-size: .8rem
+            font-weight: 500
             background: var(--btnBg)
             cursor: pointer
             border: red 2px

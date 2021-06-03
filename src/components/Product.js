@@ -3,8 +3,12 @@ import Image from 'next/image'
 import { StarIcon, ShoppingCartIcon, HeartIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
 import Currency from 'react-currency-formatter'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../slices/cartSlice'
 
 function Product({ id, title, price, description, category, image } = product) {
+
+    const dispatch = useDispatch()
 
     const MIN_RATING = 1
     const MAX_RATING = 5
@@ -16,6 +20,11 @@ function Product({ id, title, price, description, category, image } = product) {
     const [hasPrime] = useState(Math.random() < .5)
 
     const MAX_LENGTH = 60
+
+    const addItemToCart = () => {
+        const product = { id, title, price, description, category, image, rating, hasPrime }
+        dispatch(addToCart(product))
+    }
 
     const truncate = (text) => text.length > MAX_LENGTH ? `${text.substring(0, MAX_LENGTH) }...` : text
 
@@ -44,7 +53,7 @@ function Product({ id, title, price, description, category, image } = product) {
             )}
 
             {/* <div className={styles.buttons}> */}
-                <button className={styles.btn}> <ShoppingCartIcon className={styles.icons} /> <p> Add to Cart</p> </button>
+                <button className={styles.btn} onClick={addItemToCart}> <ShoppingCartIcon className={styles.icons} /> <p> Add to Cart</p> </button>
                 {/* <button className={styles.btn}> <HeartIcon className={styles.icons} /> </button> */}
             {/* </div> */}
         </div>

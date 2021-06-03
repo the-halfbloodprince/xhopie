@@ -3,12 +3,15 @@ import { useRouter } from 'next/router'
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from '@heroicons/react/solid'
 import { signIn, signOut, useSession } from 'next-auth/client'
 import styles from '../styles/Header.module.sass'
+import { useSelector } from 'react-redux'
+import { selectItems } from '../slices/cartSlice'
 
 
 const tags = [<MenuIcon className={styles.menuIcon} />, 'All', 'Electronics', 'Mobiles', 'Home & Grocery', 'Buy Again', 'Health and Personal Care', 'Eatables']
 function Header() {
     const [session] = useSession()
     const router = useRouter()
+    const items = useSelector(selectItems)
     return (
         <header className={styles.header} >
 
@@ -42,7 +45,7 @@ function Header() {
                     </div>
                     <div className={styles.header__optionBasket} onClick={() => router.push('/checkout')} >
                         <ShoppingCartIcon className={styles.cartIcon} />
-                        <span className={styles.header__optionLine2, styles.header__basketCount}>0</span>
+                        <span className={styles.header__optionLine2, styles.header__basketCount}> {items.length} </span>
                     </div>
 
                 </div>

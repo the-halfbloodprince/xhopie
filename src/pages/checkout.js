@@ -6,6 +6,10 @@ import Header from "../components/Header";
 import { selectItems, selectTotalPrice } from "../slices/cartSlice";
 import styles from '../styles/checkoutPage.module.sass'
 import { useSession } from 'next-auth/client'
+import {loadStripe} from '@stripe/stripe-js'
+import axios from 'axios'
+
+const stripePromise = loadStripe(process.env.stripe_public_key)
 
 function Checkout() {
 
@@ -13,7 +17,30 @@ function Checkout() {
     const total = useSelector(selectTotalPrice)
     // console.log(items)
 
-    const session = useSession()
+    const [session] = useSession()
+
+    const createCheckoutSession = async () => {
+        const stripe = await stripePromise;
+
+        //call the backend to create a stripe session
+        const checkoutSession = await axios.post('/api/create-checkout-session', {
+                items, 
+                email: session.user.email
+            })
+
+        // console.log(checkoutSession.data.id)
+
+        //Redirect the customer to checkout
+        const result = await stripe.redirectToCheckout({
+            sessionId: checkoutSession.data.id
+        });
+
+        if (result.error) {
+            alert(result.error.message)
+        }
+
+
+    }
 
     return (
         <div>
@@ -52,11 +79,11 @@ function Checkout() {
                     <>
                         <h2>Subtotal ({ items.length } items): 
                             <span>
-                                <Currency quantity={total} currency="GBP" />
+                                <Currency quantity={total} currency="INR" />
                             </span>
                         </h2>
 
-                        <button disabled={!session} className={session ? styles.button : styles.disabledButton }>
+                        <button role="link" onClick={createCheckoutSession} disabled={!session} className={session ? styles.button : styles.disabledButton }>
                             {!session ? 'Sign In to Checkout' : 'Proceed to Checkout'}
                         </button>
                     </>

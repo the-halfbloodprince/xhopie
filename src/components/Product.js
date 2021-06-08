@@ -42,7 +42,7 @@ function Product({ id, title, price, description, category, image } = product) {
             <p className={styles.description}>{truncate(description)}</p>
 
             <div className={styles.price}>
-                <Currency quantity={price} currency="GBP" />
+                <Currency quantity={price} currency="INR" />
             </div>
 
             {hasPrime && (

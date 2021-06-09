@@ -22,7 +22,7 @@ export default async (req, res) => {
         line_items: transformedItems,
         mode: 'payment',
         shipping_rates: [
-            'shr_1J03lgSCiU4oFndMSwy7KQGv'
+            'shr_1J0LoWSCiU4oFndMWYusbAYK'
         ],
         shipping_address_collection: {
             allowed_countries: ['IN']

@@ -35,7 +35,7 @@ function Header() {
                         <div className={styles.header__optionLine1} >{session ? `Hello ${session.user.name.split(' ')[0]}` : `Sign In`}</div>
                         <div className={styles.header__optionLine2} >Account & Lists</div>
                     </div>
-                    <div className={styles.header__option} >
+                    <div className={styles.header__option} onClick={() => router.push('/orders')} >
                         <div className={styles.header__optionLine1} >Returns</div>
                         <div className={styles.header__optionLine2} >& Orders</div>
                     </div>

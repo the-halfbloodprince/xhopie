@@ -1,6 +1,7 @@
 .header
     position: fixed
     top: 0
+    height: 10vh
     z-index: 10
 
     &__bar1
@@ -11,18 +12,25 @@
         padding: 2px
         width: 100vw
         // margin: 0 5px
-        padding: 0 20px
+        padding: 2vh 20px
 
         .logoContainer
-            margin-top: 2px
-            display: grid
+            // margin-top: 2px
+            display: flex
+            justify-content: center
+            align-items: center
             place-items: center center
             flex-grow: 0
-            @media screen and ( max-width: 600px )
-                flex-grow: 1
+            // @media screen and ( max-width: 600px )
+            //     flex-grow: 1
 
             .logo
                 cursor: pointer
+                height: 35px
+
+            p
+                font-size: 2vw
+                font-weight: 700
 
         .search
             height: 35px
@@ -31,18 +39,24 @@
             justify-content: center
             flex-grow: 1
             border-radius: 5px
+            // overflow: hidden
+            // background-color:yellow
+            
             
 
-            @media screen and ( max-width: var(--md) )
-                display: none
+            // @media screen and ( max-width: var(--md) )
+            //     display: none
 
             .search__content
                 display: flex
                 align-items: center
                 flex-grow: 1
                 max-width: 50vw
+                overflow: hidden
+
 
                 .search__input
+                    width: 100%
                     height: 40px
                     border: none
                     background: #eee
@@ -64,6 +78,9 @@
 
                 &:hover
                     background: var(--darkerPrimaryClr)
+
+        .menuIcon
+            display: none
         
         .header__nav
             display: flex
@@ -136,10 +153,40 @@
         .menuIcon
             width: 1rem
 
-        .hideInSmall
-            @media screen and ( max-width: var(--md) )
+        // .hideInSmall
+
+@media screen and ( max-width: 900px )
+    
+    .header
+        
+        &__bar1
+
+            .header__nav
                 display: none
-            
+
+            .menuIcon
+                display: block
+                width: 5vh
+                margin-right: 5vw
+
+        &__bar2
+            display: none
+
+@media screen and ( max-width: 600px  )
+    .header
+
+        &__bar1
+
+            .search
+
+                .search__content
+                    justify-content: start
+
+            .logoContainer
+
+                p
+                    display: none
+
                 
         
                     

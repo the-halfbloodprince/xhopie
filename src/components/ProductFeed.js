@@ -18,11 +18,11 @@ function ProductFeed({ products }) {
             <ProductRow products={[...products.slice(0,4)]} />
             <img className={styles.ad} src="https://links.papareact.com/dyz" alt="" />
             <ProductRow products={[...products.slice(4,8)]} />
-            <ProductRow products={[...products.slice(8,10)]} />
-            <ProductRow products={[...products.slice(10,13)]} />
+            <ProductRow products={[...products.slice(8,12)]} />
             <img className={styles.ad} src="https://links.papareact.com/dyz" alt="" />
-            <ProductRow products={[...products.slice(13,17)]} />
-            <ProductRow products={[...products.slice(17,20)]} />
+            <ProductRow products={[...products.slice(12,16)]} />
+            <ProductRow products={[...products.slice(16,20)]} />
+            {/* <ProductRow products={[...products.slice(17,20)]} /> */}
 
         </div>
 

@@ -19,7 +19,8 @@ function Header() {
             <div className={styles.header__bar1} >
                 {/* Logo */}
                 <div className={styles.logoContainer} onClick={() => router.push('/') } >
-                    <Image src="/logo.png" width={150} height={60} objectFit="contain" className={styles.logo} />
+                    <Image src="/logo.svg" width={80} height={35} objectFit="contain" className={styles.logo} />
+                    <p>Xhopie</p>
                 </div>
                 {/* Search */}
                 <div className={styles.search}>
@@ -28,6 +29,10 @@ function Header() {
                         <SearchIcon className={styles.search__icon} />
                     </div>
                 </div>
+
+                {/* Menu */}
+                <MenuIcon className={styles.menuIcon} />
+
                 {/* Nav */}
                 <div className={styles.header__nav} >
 

@@ -19,7 +19,7 @@ function orders({ orders }) {
                     (
                         <>
 
-                            <p>x Orders</p>
+                            <p>{orders.length} Orders</p>
                         
                             <div className={styles.orders}>
                             {

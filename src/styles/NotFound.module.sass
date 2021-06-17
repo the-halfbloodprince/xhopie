@@ -1,0 +1,39 @@
+.container
+    position: relative
+    // top: 10vh
+    width: 100vw
+    height: 60vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    h1
+        font-size: 10rem
+        color: tomato
+
+    p
+        font-size: 2rem
+        color: #777777
+        text-align: center
+
+    button
+        padding:  .7rem 2.5rem
+        font-size: 1.2rem
+        margin: 1.5rem 0
+        border: none
+        border-radius: 10px
+        background-color: var(--bottomNavBgClr)
+
+
+@media screen and ( max-width: 600px )
+    .container
+        h1
+            font-size: 5rem
+
+        p
+            font-size: 1rem
+
+        button
+            font-size: 1rem
+    

@@ -1,6 +1,3 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-
 // import Link from 'next/link'
 import {useRouter} from 'next/router'
 
@@ -17,7 +14,6 @@ function success() {
 
     return (
         <>
-            <Header />
 
             <main className={styles.container}>
                 <div className={styles.card}>
@@ -37,7 +33,6 @@ function success() {
                 </div>
             </main>
 
-            <Footer />
         </>
     )
 }

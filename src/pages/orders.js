@@ -1,4 +1,3 @@
-import Header from '../components/Header'
 import Order from '../components/Order'
 import db from '../../firebase'
 import {getSession, useSession} from 'next-auth/client'
@@ -11,15 +10,12 @@ function orders({ orders }) {
 
     return (
         <div>
-            <Header />
             <main className={styles.container}>
                 <h1>Your Orders</h1>
 
                 {session? 
                     (
                         <>
-
-                            <p>{orders.length} Orders</p>
                         
                             <div className={styles.orders}>
                             {

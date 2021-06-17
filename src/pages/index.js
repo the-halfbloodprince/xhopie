@@ -1,8 +1,6 @@
 import Head from "next/head";
-import Header from "../components/Header";
 import Banner from "../components/Banner";
 import ProductFeed from "../components/ProductFeed";
-import Footer from "../components/Footer";
 import {getSession} from 'next-auth/client'
 
 export default function Home({ products }) {
@@ -14,7 +12,6 @@ export default function Home({ products }) {
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet" /> 
       </Head>
 
-      <Header />
 
       {/* <div className="mainContainer"> */}
         <Banner />
@@ -23,7 +20,6 @@ export default function Home({ products }) {
         
       {/* </div> */}
       
-      <Footer />
 
     </div>
   );

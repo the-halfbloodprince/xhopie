@@ -31,7 +31,6 @@ function Header() {
                 </div>
 
                 {/* Menu */}
-                <MenuIcon className={styles.menuIcon} />
 
                 {/* Nav */}
                 <div className={styles.header__nav} >
@@ -46,7 +45,7 @@ function Header() {
                     </div>
                     <div className={styles.header__option} >
                         <div className={styles.header__optionLine1} >Your</div>
-                        <div className={styles.header__optionLine2} >Prime</div>
+                        <div className={styles.header__optionLine2} >Wishlist</div>
                     </div>
                     <div className={styles.header__optionBasket} onClick={() => router.push('/checkout')} >
                         <ShoppingCartIcon className={styles.cartIcon} />
@@ -54,6 +53,7 @@ function Header() {
                     </div>
 
                 </div>
+                <MenuIcon className={styles.menuIcon} />
             </div>
 
             {/* Tags */}

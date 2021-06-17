@@ -24,15 +24,17 @@ function CheckoutItem({ id, title, rating, hasPrime, price, description, categor
     return (
         <div className={styles.container}>
             {/* Left Image */}
-            <Image src={image} height={200} width={200} objectFit="contain" />
+            <div className={styles.firstSec}>
+                <Image src={image} height={200} width={200} objectFit="contain" />
+            </div>
             {/* Mid section */}
             <div className={styles.midSec}>
-                <p>{title}</p>
+                <p className={styles.title}>{title}</p>
                 <div className={styles.rating}>
                     { Array(rating).fill().map((_, i) => <StarIcon key={i} className={styles.star} />) }
                 </div>
                 <p className={styles.description}>{description}</p>
-                <Currency quantity={price} currency="GBP" />
+                <Currency className={styles.price} quantity={price} currency="GBP" />
                 {hasPrime && (
                     <div className={styles.prime}>
                         <img loading="lazy" src="https://links.papareact.com/fdw" />

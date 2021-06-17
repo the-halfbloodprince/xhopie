@@ -16,9 +16,7 @@ function Order({ id, amount, amountShipping, items, timestamp, images }) {
                 <div className={styles.p2}>
                     <p className={styles.p2__t1}>TOTAL</p>
                     <p className={styles.p2__t2}>
-                        <Currency quantity={amount} currency="INR" />
-                         - Next Day Delivery - 
-                        <Currency quantity={amountShipping} currency="INR" />
+                        <Currency quantity={amount + amountShipping} currency="INR" />
                     </p>
                 </div>
 

@@ -32,6 +32,7 @@ function Product({ id, title, price, description, category, image } = product) {
         <div className={styles.product} >
             {/* <p className={styles.category}>{category}</p> */}
             <h4 className={styles.title}>{title}</h4>
+            {/* <Image src={image} className={styles.image} height={200} width={200} objectFit="contain" /> */}
             <Image src={image} className={styles.image} height={200} width={200} objectFit="contain" />
             <div className={styles.rating} >
                 {Array(rating).fill().map((_, i)=>(

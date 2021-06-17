@@ -2,7 +2,6 @@ import Image from "next/image";
 import Currency from 'react-currency-formatter'
 import { useSelector } from "react-redux";
 import CheckoutItem from '../components/CheckoutItem'
-import Header from "../components/Header";
 import { selectItems, selectTotalPrice } from "../slices/cartSlice";
 import styles from '../styles/checkoutPage.module.sass'
 import { useSession } from 'next-auth/client'
@@ -44,7 +43,6 @@ function Checkout() {
 
     return (
         <div>
-            <Header />
             <main className={styles.mainContainer}>
                 {/* left */}
                <div className={styles.left}>

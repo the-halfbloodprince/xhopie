@@ -1,10 +1,13 @@
 .container
     position: relative
     background: white
-    display: grid
+    display: flex
     width: 100%
-    grid-template-columns: repeat( 5 , 1fr )
-    margin: 40px 0
+    align-items: center
+    // height: 20rem
+    // grid-template-columns: repeat( 5 , 1fr )
+    // grid-template-rows: repeat( 5 , 1fr )
+    margin: 5px 0
     // border-bottom: 1px solid #aaaaaaaa
     // padding-bottom: 20px 
 
@@ -15,15 +18,22 @@
         width: 100%
         background: #aaaaaa44
         position: absolute
-        bottom: -20px
+        bottom: -5px
+
+    .firstSec
+        // height: 200px
+        // background: #f00
         
 
-
     .midSec
-        grid-column: span 3
+        flex-grow: 3
         margin: auto 10px
         padding: 20px
         // background: blue
+
+        .title
+            font-size: 1.3em
+            font-weight: 700
 
         .description
             font-size: 0.7rem
@@ -36,6 +46,9 @@
             .star
                 height: 20px
                 color: #ff9100
+
+        // .price
+        //     font-weight: 800
 
         .prime
             display: flex
@@ -61,6 +74,7 @@
             // width: 50%
             // height: 1.2rem
             display: flex
+            white-space: nowrap
             justify-content: center
             align-items: center
             // margin-top: auto
@@ -84,3 +98,34 @@
                 width: 1.1rem
                 height: 1.1rem
                 margin-right: 10px 
+
+
+@media screen and ( max-width: 600px )
+
+    .container
+        flex-direction: column
+        padding: 5px
+        // background-color: black        
+
+        .firstSec
+            // background: red
+            // border: 2px solid red
+            // height: 2rem
+            
+                
+
+        .midSec
+            grid-row: span 3   
+            // padding: 10px
+            margin: 0
+            // background-color: yellow
+
+        .rtSec
+            // background: green
+            height: 3rem
+            flex-direction: row
+            justify-content: space-between
+
+            .btn
+                margin: 5px
+                width: 50%

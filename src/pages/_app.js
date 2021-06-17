@@ -1,3 +1,4 @@
+import Layout from '../components/Layout'
 import { Provider } from 'react-redux'
 import { store } from '../app/store'
 import { Provider as AuthProvider } from 'next-auth/client'
@@ -8,7 +9,9 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <AuthProvider session={pageProps.session}>
       <Provider store={store}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </Provider>
     </AuthProvider>
   )

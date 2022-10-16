@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from '@heroicons/react/solid'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { signIn, signOut, useSession } from 'next-auth/react'
 import styles from '../styles/Header.module.sass'
 import { useSelector } from 'react-redux'
 import { selectItems } from '../slices/cartSlice'
@@ -9,7 +9,7 @@ import { selectItems } from '../slices/cartSlice'
 
 const tags = [<MenuIcon className={styles.menuIcon} />, 'All', 'Electronics', 'Mobiles', 'Home & Grocery', 'Buy Again', 'Health and Personal Care', 'Eatables']
 function Header() {
-    const [session] = useSession()
+    const { data: session } = useSession()
     const router = useRouter()
     const items = useSelector(selectItems)
     return (
@@ -57,13 +57,15 @@ function Header() {
             </div>
 
             {/* Tags */}
-            <div className={styles.header__bar2}>
-                {
+            {/*
+                <div className={styles.header__bar2}>
+                    {
                     tags.map((tag, key) => (
-                        <a className={styles.tag, (key > 4 ? styles.hideInSmall : undefined)} key={key}>{tag}</a>
+                    <a className={styles.tag, (key > 4 ? styles.hideInSmall : undefined)} key={key}>{tag}</a>
                     ))
-                }
-            </div>
+                    }
+                </div>
+            */}
 
 
 

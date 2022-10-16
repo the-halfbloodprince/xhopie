@@ -19,19 +19,20 @@ function Product({ id, title, price, description, category, image } = product) {
 
     const [hasPrime] = useState(Math.random() < .5)
 
-    const MAX_LENGTH = 60
+    const MAX_LENGTH_TITLE = 20
+    const MAX_LENGTH_DESCRIPTION = 60
 
     const addItemToCart = () => {
         const product = { id, title, price, description, category, image, rating, hasPrime }
         dispatch(addToCart(product))
     }
 
-    const truncate = (text) => text.length > MAX_LENGTH ? `${text.substring(0, MAX_LENGTH) }...` : text
+    const truncate = (text, len) => text.length > len ? `${text.substring(0, len) }...` : text
 
     return (
         <div className={styles.product} >
             {/* <p className={styles.category}>{category}</p> */}
-            <h4 className={styles.title}>{title}</h4>
+            <h4 className={styles.title}>{truncate(title, MAX_LENGTH_TITLE)}</h4>
             {/* <Image src={image} className={styles.image} height={200} width={200} objectFit="contain" /> */}
             <Image src={image} className={styles.image} height={200} width={200} objectFit="contain" />
             <div className={styles.rating} >
@@ -40,7 +41,7 @@ function Product({ id, title, price, description, category, image } = product) {
                 ))}
             </div>
 
-            <p className={styles.description}>{truncate(description)}</p>
+            <p className={styles.description}>{truncate(description, MAX_LENGTH_DESCRIPTION)}</p>
 
             <div className={styles.price}>
                 <Currency quantity={price} currency="INR" />

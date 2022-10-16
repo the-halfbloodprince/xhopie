@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Banner from "../components/Banner";
 import ProductFeed from "../components/ProductFeed";
-import {getSession} from 'next-auth/client'
+import { getSession } from 'next-auth/react'
 
 export default function Home({ products }) {
   return (
